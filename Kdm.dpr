@@ -2,13 +2,14 @@ program Kdm;
 
 uses
   Vcl.Forms,
-  Principal in 'Principal.pas' {Form4};
+  View.Principal in 'Src\Views\View.Principal.pas' {ViewPrincipal};
 
 {$R *.res}
 
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
-  Application.CreateForm(TForm4, Form4);
+  Application.CreateForm(TViewPrincipal, ViewPrincipal);
   Application.Run;
+
 end.
