@@ -5,3 +5,12 @@
 *.res
 *.exe
 *.dcu
+*.~3~
+*.~4~
+*.~5~
+*.~6~
+*.~7~
+*.~8~
+Src/Views/__recovery/__recovery.ini
+Src/Views/__recovery/__recovery.ini
+*.identcache
