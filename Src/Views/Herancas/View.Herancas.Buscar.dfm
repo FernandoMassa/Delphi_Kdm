@@ -13,6 +13,7 @@ object ViewHerancasBuscar: TViewHerancasBuscar
   Font.Style = []
   KeyPreview = True
   Position = poMainFormCenter
+  OnKeyDown = FormKeyDown
   TextHeight = 15
   object Panel1: TPanel
     Left = 0
@@ -44,7 +45,7 @@ object ViewHerancasBuscar: TViewHerancasBuscar
       TabOrder = 0
       ExplicitTop = 496
       ExplicitWidth = 215
-      object SpeedButton1: TSpeedButton
+      object btnFecha: TSpeedButton
         AlignWithMargins = True
         Left = 201
         Top = 4
@@ -53,9 +54,10 @@ object ViewHerancasBuscar: TViewHerancasBuscar
         Align = alRight
         Caption = 'Fechar'
         StyleName = 'Windows'
+        OnClick = btnFechaClick
         ExplicitLeft = 221
       end
-      object SpeedButton2: TSpeedButton
+      object btnCadastro: TSpeedButton
         AlignWithMargins = True
         Left = 9
         Top = 4
@@ -66,7 +68,7 @@ object ViewHerancasBuscar: TViewHerancasBuscar
         StyleName = 'Windows'
         ExplicitLeft = -3
       end
-      object SpeedButton3: TSpeedButton
+      object btnUtiliza: TSpeedButton
         AlignWithMargins = True
         Left = 105
         Top = 4
@@ -75,6 +77,7 @@ object ViewHerancasBuscar: TViewHerancasBuscar
         Align = alRight
         Caption = 'Utilizar'
         StyleName = 'Windows'
+        OnClick = btnUtilizaClick
         ExplicitLeft = 145
       end
     end
@@ -84,6 +87,8 @@ object ViewHerancasBuscar: TViewHerancasBuscar
       Width = 265
       Height = 23
       TabOrder = 1
+      OnChange = edtBuscaChange
+      OnKeyPress = edtBuscaKeyPress
     end
     object rgBuscaPor: TRadioGroup
       Left = 16
@@ -113,7 +118,7 @@ object ViewHerancasBuscar: TViewHerancasBuscar
     ExplicitLeft = 8
     ExplicitWidth = 217
     ExplicitHeight = 577
-    object DBGrid1: TDBGrid
+    object grdResult: TDBGrid
       Left = 1
       Top = 1
       Width = 650
@@ -125,8 +130,9 @@ object ViewHerancasBuscar: TViewHerancasBuscar
       TitleFont.Height = -12
       TitleFont.Name = 'Segoe UI'
       TitleFont.Style = []
+      OnDrawColumnCell = grdResultDrawColumnCell
     end
-    object StatusBar1: TStatusBar
+    object sbResult: TStatusBar
       Left = 1
       Top = 568
       Width = 650
@@ -134,10 +140,9 @@ object ViewHerancasBuscar: TViewHerancasBuscar
       Panels = <
         item
           Alignment = taRightJustify
-          Text = 'Registros Encontrados   '
           Width = 60
         end>
-      ExplicitWidth = 730
+      StyleName = 'Windows'
     end
   end
 end
