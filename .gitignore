@@ -11,6 +11,9 @@
 *.~6~
 *.~7~
 *.~8~
-Src/Views/__recovery/__recovery.ini
-Src/Views/__recovery/__recovery.ini
+Src/Views/__recovery/
+bin/
+__history/
+__recovery/
+dcu/
 *.identcache
