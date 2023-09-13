@@ -107,6 +107,16 @@
             <Form>ViewPrincipal</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="Src\Model\Connection\Model.Conect.DM.pas">
+            <Form>ModelConectDM</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="Src\Model\Endereco\Model.Endereco.DM.pas">
+            <Form>ModelEnderecoDM</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
@@ -133,7 +143,7 @@
                 </Excluded_Packages>
             </Delphi.Personality>
             <Deployment Version="4">
-                <DeployFile LocalName="Win32\Debug\Kdm.exe" Configuration="Debug" Class="ProjectOutput">
+                <DeployFile LocalName="bin\Kdm.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
                         <RemoteName>Kdm.exe</RemoteName>
                         <Overwrite>true</Overwrite>

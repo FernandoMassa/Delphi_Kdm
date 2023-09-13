@@ -1,6 +1,6 @@
 object ModelConectDM: TModelConectDM
-  Height = 480
-  Width = 640
+  Height = 225
+  Width = 95
   object con: TFDConnection
     Params.Strings = (
       'Database=D:\Database\BANCOTST.FDB'
