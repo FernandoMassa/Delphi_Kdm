@@ -10,40 +10,22 @@ uses
 type
   TViewPrincipal = class(TForm)
     StatusBar1: TStatusBar;
-    pnlManu: TPanel;
+    pnlMenu: TPanel;
     pcMenu: TPageControl;
     tsCadastro: TTabSheet;
-    SpeedButton1: TSpeedButton;
+    btnUsuario: TSpeedButton;
     tsFinanc: TTabSheet;
-    tsControle: TTabSheet;
+    tsManut: TTabSheet;
     tsFiscal: TTabSheet;
     btnExpandeContrai: TSpeedButton;
-    BitBtn1: TBitBtn;
-    BitBtn2: TBitBtn;
-    BitBtn3: TBitBtn;
-    BitBtn4: TBitBtn;
-    BitBtn5: TBitBtn;
-    BitBtn6: TBitBtn;
-    BitBtn7: TBitBtn;
-    BitBtn8: TBitBtn;
-    BitBtn9: TBitBtn;
-    BitBtn10: TBitBtn;
-    BitBtn11: TBitBtn;
-    BitBtn12: TBitBtn;
-    BitBtn13: TBitBtn;
-    BitBtn14: TBitBtn;
-    BitBtn15: TBitBtn;
-    BitBtn16: TBitBtn;
-    BitBtn17: TBitBtn;
-    BitBtn18: TBitBtn;
-    BitBtn19: TBitBtn;
-    BitBtn20: TBitBtn;
-    BitBtn21: TBitBtn;
-    BitBtn22: TBitBtn;
-    BitBtn23: TBitBtn;
-    procedure pcMenuMouseUp(Sender: TObject; Button: TMouseButton;
-      Shift: TShiftState; X, Y: Integer);
-    procedure pcMenuMouseLeave(Sender: TObject);
+    btnPromo: TSpeedButton;
+    btnDescontos: TSpeedButton;
+    btnEmpMan: TSpeedButton;
+    btnManAparelhos: TSpeedButton;
+    btnCupom: TSpeedButton;
+    btnEmpresa: TSpeedButton;
+    btnAparelhos: TSpeedButton;
+    btnPlanos: TSpeedButton;
     procedure btnExpandeContraiClick(Sender: TObject);
   private
     { Private declarations }
@@ -66,27 +48,18 @@ procedure TViewPrincipal.btnExpandeContraiClick(Sender: TObject);
 begin
   if btnExpandeContrai.Caption = '\/' then
   begin
-      pnlManu.Height := AL_EXPANDIDO;
+      pnlMenu.Height := AL_EXPANDIDO;
       btnExpandeContrai.Caption := '/\';
   end
   else
   begin
-      pnlManu.Height := AL_CONTRAIDO;
+      pnlMenu.Height := AL_CONTRAIDO;
       btnExpandeContrai.Caption := '\/'
   end;
 
 
 end;
 
-procedure TViewPrincipal.pcMenuMouseLeave(Sender: TObject);
-begin
-  pcMenu.Height := 17;
-end;
 
-procedure TViewPrincipal.pcMenuMouseUp(Sender: TObject;
-  Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
-begin
-  pcMenu.Height := 100;
-end;
 
 end.

@@ -32,13 +32,14 @@ object ViewPrincipal: TViewPrincipal
     ExplicitTop = 508
     ExplicitWidth = 851
   end
-  object pnlManu: TPanel
+  object pnlMenu: TPanel
     Left = 0
     Top = 0
     Width = 855
     Height = 65
     Align = alTop
     TabOrder = 1
+    ExplicitWidth = 851
     object btnExpandeContrai: TSpeedButton
       Left = 1
       Top = 1
@@ -60,13 +61,11 @@ object ViewPrincipal: TViewPrincipal
       Align = alClient
       TabOrder = 0
       StyleName = 'Windows'
-      OnMouseLeave = pcMenuMouseLeave
-      OnMouseUp = pcMenuMouseUp
-      ExplicitWidth = 832
-      ExplicitHeight = 71
+      ExplicitLeft = 24
+      ExplicitTop = 2
       object tsCadastro: TTabSheet
         Caption = 'Cadastro'
-        object SpeedButton1: TSpeedButton
+        object btnUsuario: TSpeedButton
           Left = 0
           Top = 0
           Width = 97
@@ -206,68 +205,27 @@ object ViewPrincipal: TViewPrincipal
             0000000000000000000000000000000000000000000000000000}
           Margin = 3
           StyleName = 'Windows'
-          ExplicitHeight = 41
+          ExplicitHeight = 20
         end
-        object BitBtn1: TBitBtn
-          Left = 397
-          Top = 0
-          Width = 75
-          Height = 33
-          Align = alLeft
-          Caption = 'BitBtn1'
-          TabOrder = 0
-          StyleName = 'Windows'
-          ExplicitLeft = 280
-          ExplicitTop = 24
-          ExplicitHeight = 25
-        end
-        object BitBtn2: TBitBtn
-          Left = 322
-          Top = 0
-          Width = 75
-          Height = 33
-          Align = alLeft
-          Caption = 'BitBtn1'
-          TabOrder = 1
-          StyleName = 'Windows'
-          ExplicitLeft = 280
-          ExplicitTop = 24
-          ExplicitHeight = 25
-        end
-        object BitBtn3: TBitBtn
-          Left = 247
-          Top = 0
-          Width = 75
-          Height = 33
-          Align = alLeft
-          Caption = 'BitBtn1'
-          TabOrder = 2
-          StyleName = 'Windows'
-          ExplicitLeft = 280
-          ExplicitTop = 24
-          ExplicitHeight = 25
-        end
-        object BitBtn4: TBitBtn
-          Left = 172
-          Top = 0
-          Width = 75
-          Height = 33
-          Align = alLeft
-          Caption = 'BitBtn1'
-          TabOrder = 3
-          StyleName = 'Windows'
-          ExplicitLeft = 280
-          ExplicitTop = 24
-          ExplicitHeight = 25
-        end
-        object BitBtn5: TBitBtn
+        object btnEmpresa: TSpeedButton
           Left = 97
           Top = 0
           Width = 75
           Height = 33
           Align = alLeft
-          Caption = 'BitBtn1'
-          TabOrder = 4
+          Caption = 'Empresa'
+          StyleName = 'Windows'
+          ExplicitLeft = 280
+          ExplicitTop = 24
+          ExplicitHeight = 25
+        end
+        object btnAparelhos: TSpeedButton
+          Left = 172
+          Top = 0
+          Width = 75
+          Height = 33
+          Align = alLeft
+          Caption = 'Aparelhos'
           StyleName = 'Windows'
           ExplicitLeft = 280
           ExplicitTop = 24
@@ -277,221 +235,73 @@ object ViewPrincipal: TViewPrincipal
       object tsFinanc: TTabSheet
         Caption = 'Financeiro'
         ImageIndex = 1
-        object BitBtn6: TBitBtn
-          Left = 0
-          Top = 0
-          Width = 75
-          Height = 33
-          Align = alLeft
-          Caption = 'BitBtn1'
-          TabOrder = 0
-          StyleName = 'Windows'
-          ExplicitLeft = 8
-        end
-        object BitBtn7: TBitBtn
+        object btnPromo: TSpeedButton
           Left = 75
           Top = 0
           Width = 75
           Height = 33
           Align = alLeft
-          Caption = 'BitBtn1'
-          TabOrder = 1
+          Caption = 'Promoss'#245'es'
           StyleName = 'Windows'
-          ExplicitLeft = 280
-          ExplicitTop = 24
-          ExplicitHeight = 25
+          ExplicitLeft = 81
         end
-        object BitBtn8: TBitBtn
-          Left = 375
-          Top = 0
-          Width = 75
-          Height = 33
-          Align = alLeft
-          Caption = 'BitBtn1'
-          TabOrder = 2
-          StyleName = 'Windows'
-          ExplicitLeft = 280
-          ExplicitTop = 24
-          ExplicitHeight = 25
-        end
-        object BitBtn9: TBitBtn
-          Left = 300
-          Top = 0
-          Width = 75
-          Height = 33
-          Align = alLeft
-          Caption = 'BitBtn1'
-          TabOrder = 3
-          StyleName = 'Windows'
-          ExplicitLeft = 280
-          ExplicitTop = 24
-          ExplicitHeight = 25
-        end
-        object BitBtn10: TBitBtn
-          Left = 225
-          Top = 0
-          Width = 75
-          Height = 33
-          Align = alLeft
-          Caption = 'BitBtn1'
-          TabOrder = 4
-          StyleName = 'Windows'
-          ExplicitLeft = 280
-          ExplicitTop = 24
-          ExplicitHeight = 25
-        end
-        object BitBtn11: TBitBtn
+        object btnDescontos: TSpeedButton
           Left = 150
           Top = 0
           Width = 75
           Height = 33
           Align = alLeft
-          Caption = 'BitBtn1'
-          TabOrder = 5
+          Caption = 'Descontos'
           StyleName = 'Windows'
           ExplicitLeft = 280
           ExplicitTop = 24
           ExplicitHeight = 25
+        end
+        object btnPlanos: TSpeedButton
+          Left = 0
+          Top = 0
+          Width = 75
+          Height = 33
+          Align = alLeft
+          Caption = 'Planos'
+          StyleName = 'Windows'
+          ExplicitLeft = 8
         end
       end
-      object tsControle: TTabSheet
-        Caption = 'Controle'
+      object tsManut: TTabSheet
+        Caption = 'Manuten'#231#227'o'
         ImageIndex = 2
-        object BitBtn12: TBitBtn
+        object btnEmpMan: TSpeedButton
+          Left = 97
+          Top = 0
+          Width = 134
+          Height = 33
+          Align = alLeft
+          Caption = 'Empresa Manut.'
+          StyleName = 'Windows'
+          ExplicitLeft = 75
+        end
+        object btnManAparelhos: TSpeedButton
           Left = 0
           Top = 0
-          Width = 75
+          Width = 97
           Height = 33
           Align = alLeft
-          Caption = 'BitBtn1'
-          TabOrder = 0
+          Caption = 'Aparelhos'
           StyleName = 'Windows'
-          ExplicitLeft = 8
-        end
-        object BitBtn13: TBitBtn
-          Left = 75
-          Top = 0
-          Width = 75
-          Height = 33
-          Align = alLeft
-          Caption = 'BitBtn1'
-          TabOrder = 1
-          StyleName = 'Windows'
-          ExplicitLeft = 83
-        end
-        object BitBtn14: TBitBtn
-          Left = 375
-          Top = 0
-          Width = 75
-          Height = 33
-          Align = alLeft
-          Caption = 'BitBtn1'
-          TabOrder = 2
-          StyleName = 'Windows'
-          ExplicitLeft = 158
-        end
-        object BitBtn15: TBitBtn
-          Left = 300
-          Top = 0
-          Width = 75
-          Height = 33
-          Align = alLeft
-          Caption = 'BitBtn1'
-          TabOrder = 3
-          StyleName = 'Windows'
-          ExplicitLeft = 158
-        end
-        object BitBtn16: TBitBtn
-          Left = 225
-          Top = 0
-          Width = 75
-          Height = 33
-          Align = alLeft
-          Caption = 'BitBtn1'
-          TabOrder = 4
-          StyleName = 'Windows'
-          ExplicitLeft = 158
-        end
-        object BitBtn17: TBitBtn
-          Left = 150
-          Top = 0
-          Width = 75
-          Height = 33
-          Align = alLeft
-          Caption = 'BitBtn1'
-          TabOrder = 5
-          StyleName = 'Windows'
-          ExplicitLeft = 158
         end
       end
       object tsFiscal: TTabSheet
         Caption = 'Fiscal'
         ImageIndex = 3
-        object BitBtn18: TBitBtn
+        object btnCupom: TSpeedButton
           Left = 0
           Top = 0
-          Width = 75
+          Width = 150
           Height = 33
           Align = alLeft
-          Caption = 'BitBtn1'
-          TabOrder = 0
+          Caption = 'Emiss'#227'o Cupom Fical'
           StyleName = 'Windows'
-          ExplicitLeft = 8
-        end
-        object BitBtn19: TBitBtn
-          Left = 75
-          Top = 0
-          Width = 75
-          Height = 33
-          Align = alLeft
-          Caption = 'BitBtn1'
-          TabOrder = 1
-          StyleName = 'Windows'
-          ExplicitLeft = 83
-        end
-        object BitBtn20: TBitBtn
-          Left = 375
-          Top = 0
-          Width = 75
-          Height = 33
-          Align = alLeft
-          Caption = 'BitBtn1'
-          TabOrder = 2
-          StyleName = 'Windows'
-          ExplicitLeft = 158
-        end
-        object BitBtn21: TBitBtn
-          Left = 300
-          Top = 0
-          Width = 75
-          Height = 33
-          Align = alLeft
-          Caption = 'BitBtn1'
-          TabOrder = 3
-          StyleName = 'Windows'
-          ExplicitLeft = 158
-        end
-        object BitBtn22: TBitBtn
-          Left = 225
-          Top = 0
-          Width = 75
-          Height = 33
-          Align = alLeft
-          Caption = 'BitBtn1'
-          TabOrder = 4
-          StyleName = 'Windows'
-          ExplicitLeft = 158
-        end
-        object BitBtn23: TBitBtn
-          Left = 150
-          Top = 0
-          Width = 75
-          Height = 33
-          Align = alLeft
-          Caption = 'BitBtn1'
-          TabOrder = 5
-          StyleName = 'Windows'
-          ExplicitLeft = 158
         end
       end
     end
