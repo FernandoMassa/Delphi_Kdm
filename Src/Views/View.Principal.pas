@@ -26,6 +26,7 @@ type
     btnEmpresa: TSpeedButton;
     btnAparelhos: TSpeedButton;
     btnPlanos: TSpeedButton;
+    Bevel1: TBevel;
     procedure btnExpandeContraiClick(Sender: TObject);
   private
     { Private declarations }
@@ -37,7 +38,7 @@ var
   ViewPrincipal: TViewPrincipal;
 
 CONST
-  AL_EXPANDIDO = 65;
+  AL_EXPANDIDO = 77;
   AL_CONTRAIDO = 25;
 
 implementation

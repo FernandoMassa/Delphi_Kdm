@@ -36,15 +36,14 @@ object ViewPrincipal: TViewPrincipal
     Left = 0
     Top = 0
     Width = 855
-    Height = 65
+    Height = 77
     Align = alTop
     TabOrder = 1
-    ExplicitWidth = 851
     object btnExpandeContrai: TSpeedButton
       Left = 1
       Top = 1
       Width = 17
-      Height = 63
+      Height = 75
       Align = alLeft
       Caption = '/\'
       OnClick = btnExpandeContraiClick
@@ -56,20 +55,22 @@ object ViewPrincipal: TViewPrincipal
       Left = 18
       Top = 1
       Width = 836
-      Height = 63
-      ActivePage = tsCadastro
+      Height = 75
+      ActivePage = tsFinanc
       Align = alClient
       TabOrder = 0
       StyleName = 'Windows'
       ExplicitLeft = 24
       ExplicitTop = 2
+      ExplicitHeight = 63
       object tsCadastro: TTabSheet
         Caption = 'Cadastro'
         object btnUsuario: TSpeedButton
-          Left = 0
-          Top = 0
+          AlignWithMargins = True
+          Left = 3
+          Top = 3
           Width = 97
-          Height = 33
+          Height = 39
           Align = alLeft
           Caption = 'Usu'#225'rio'
           Glyph.Data = {
@@ -205,13 +206,16 @@ object ViewPrincipal: TViewPrincipal
             0000000000000000000000000000000000000000000000000000}
           Margin = 3
           StyleName = 'Windows'
+          ExplicitLeft = 0
+          ExplicitTop = 0
           ExplicitHeight = 20
         end
         object btnEmpresa: TSpeedButton
-          Left = 97
-          Top = 0
+          AlignWithMargins = True
+          Left = 106
+          Top = 3
           Width = 75
-          Height = 33
+          Height = 39
           Align = alLeft
           Caption = 'Empresa'
           StyleName = 'Windows'
@@ -220,16 +224,24 @@ object ViewPrincipal: TViewPrincipal
           ExplicitHeight = 25
         end
         object btnAparelhos: TSpeedButton
-          Left = 172
-          Top = 0
+          AlignWithMargins = True
+          Left = 187
+          Top = 3
           Width = 75
-          Height = 33
+          Height = 39
           Align = alLeft
           Caption = 'Aparelhos'
           StyleName = 'Windows'
           ExplicitLeft = 280
           ExplicitTop = 24
           ExplicitHeight = 25
+        end
+        object Bevel1: TBevel
+          Left = 265
+          Top = 0
+          Width = 6
+          Height = 45
+          Align = alLeft
         end
       end
       object tsFinanc: TTabSheet
@@ -239,17 +251,18 @@ object ViewPrincipal: TViewPrincipal
           Left = 75
           Top = 0
           Width = 75
-          Height = 33
+          Height = 45
           Align = alLeft
           Caption = 'Promoss'#245'es'
           StyleName = 'Windows'
           ExplicitLeft = 81
+          ExplicitHeight = 33
         end
         object btnDescontos: TSpeedButton
           Left = 150
           Top = 0
           Width = 75
-          Height = 33
+          Height = 45
           Align = alLeft
           Caption = 'Descontos'
           StyleName = 'Windows'
@@ -261,11 +274,12 @@ object ViewPrincipal: TViewPrincipal
           Left = 0
           Top = 0
           Width = 75
-          Height = 33
+          Height = 45
           Align = alLeft
           Caption = 'Planos'
           StyleName = 'Windows'
           ExplicitLeft = 8
+          ExplicitHeight = 33
         end
       end
       object tsManut: TTabSheet
@@ -275,20 +289,22 @@ object ViewPrincipal: TViewPrincipal
           Left = 97
           Top = 0
           Width = 134
-          Height = 33
+          Height = 45
           Align = alLeft
           Caption = 'Empresa Manut.'
           StyleName = 'Windows'
           ExplicitLeft = 75
+          ExplicitHeight = 33
         end
         object btnManAparelhos: TSpeedButton
           Left = 0
           Top = 0
           Width = 97
-          Height = 33
+          Height = 45
           Align = alLeft
           Caption = 'Aparelhos'
           StyleName = 'Windows'
+          ExplicitHeight = 33
         end
       end
       object tsFiscal: TTabSheet
@@ -298,10 +314,11 @@ object ViewPrincipal: TViewPrincipal
           Left = 0
           Top = 0
           Width = 150
-          Height = 33
+          Height = 45
           Align = alLeft
           Caption = 'Emiss'#227'o Cupom Fical'
           StyleName = 'Windows'
+          ExplicitHeight = 33
         end
       end
     end
