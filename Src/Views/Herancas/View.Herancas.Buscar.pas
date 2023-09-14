@@ -20,8 +20,11 @@ type
     btnCadastro: TSpeedButton;
     btnUtiliza: TSpeedButton;
     rgBuscaPor: TRadioGroup;
-    CheckListBox1: TCheckListBox;
-    Label2: TLabel;
+    GroupBox1: TGroupBox;
+    rbQqParteTexto: TRadioButton;
+    rbIniciaCom: TRadioButton;
+    rbTerminaCom: TRadioButton;
+    GroupBox2: TGroupBox;
     procedure btnFechaClick(Sender: TObject);
     procedure btnUtilizaClick(Sender: TObject);
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);

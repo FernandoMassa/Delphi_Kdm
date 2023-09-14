@@ -22,19 +22,13 @@ object ViewHerancasBuscar: TViewHerancasBuscar
     Height = 588
     Align = alLeft
     TabOrder = 0
+    ExplicitHeight = 587
     object Label1: TLabel
       Left = 16
       Top = 15
       Width = 62
       Height = 15
       Caption = 'Buscar por..'
-    end
-    object Label2: TLabel
-      Left = 16
-      Top = 207
-      Width = 76
-      Height = 15
-      Caption = 'Outras op'#231#245'es'
     end
     object Panel4: TPanel
       Left = 1
@@ -43,8 +37,7 @@ object ViewHerancasBuscar: TViewHerancasBuscar
       Height = 80
       Align = alBottom
       TabOrder = 0
-      ExplicitTop = 496
-      ExplicitWidth = 215
+      ExplicitTop = 506
       object btnFecha: TSpeedButton
         AlignWithMargins = True
         Left = 201
@@ -92,19 +85,53 @@ object ViewHerancasBuscar: TViewHerancasBuscar
     end
     object rgBuscaPor: TRadioGroup
       Left = 16
-      Top = 72
+      Top = 128
       Width = 265
-      Height = 121
+      Height = 73
       Caption = 'Tipo busca'
       TabOrder = 2
     end
-    object CheckListBox1: TCheckListBox
+    object GroupBox1: TGroupBox
       Left = 16
-      Top = 224
+      Top = 56
       Width = 265
-      Height = 265
-      ItemHeight = 15
+      Height = 66
+      Caption = 'Op'#231#245'es de digita'#231#227'o'
       TabOrder = 3
+      object rbQqParteTexto: TRadioButton
+        Left = 56
+        Top = 19
+        Width = 152
+        Height = 17
+        Caption = 'Qualquer parte do texto'
+        Checked = True
+        TabOrder = 0
+        TabStop = True
+      end
+      object rbIniciaCom: TRadioButton
+        Left = 11
+        Top = 42
+        Width = 113
+        Height = 17
+        Caption = 'Come'#231'a com...'
+        TabOrder = 1
+      end
+      object rbTerminaCom: TRadioButton
+        Left = 142
+        Top = 42
+        Width = 113
+        Height = 17
+        Caption = 'Termina com...'
+        TabOrder = 2
+      end
+    end
+    object GroupBox2: TGroupBox
+      Left = 16
+      Top = 207
+      Width = 265
+      Height = 282
+      Caption = 'Outras op'#231#245'es'
+      TabOrder = 4
     end
   end
   object Panel2: TPanel
@@ -115,9 +142,8 @@ object ViewHerancasBuscar: TViewHerancasBuscar
     Align = alClient
     Caption = 'Panel1'
     TabOrder = 1
-    ExplicitLeft = 8
-    ExplicitWidth = 217
-    ExplicitHeight = 577
+    ExplicitWidth = 648
+    ExplicitHeight = 587
     object grdResult: TDBGrid
       Left = 1
       Top = 1
@@ -143,6 +169,8 @@ object ViewHerancasBuscar: TViewHerancasBuscar
           Width = 60
         end>
       StyleName = 'Windows'
+      ExplicitTop = 567
+      ExplicitWidth = 646
     end
   end
 end
