@@ -31,6 +31,7 @@ type
     procedure edtBuscaKeyPress(Sender: TObject; var Key: Char);
     procedure edtBuscaChange(Sender: TObject);
     procedure grdResultDrawColumnCell(Sender: TObject; const Rect: TRect; DataCol: Integer; Column: TColumn; State: TGridDrawState);
+    procedure FormShow(Sender: TObject);
   private
     procedure ResultEncontrou;
     procedure FechaCancela;
@@ -51,6 +52,17 @@ implementation
 
 {$R *.dfm}
 
+procedure TViewHerancasBuscar.btnFechaClick(Sender: TObject);
+begin
+  FechaCancela
+end;
+
+procedure TViewHerancasBuscar.FechaCancela;
+begin
+  Self.Close;
+  Self.ModalResult := mrCancel;
+end;
+
 procedure TViewHerancasBuscar.FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
 begin
   case Key of
@@ -64,23 +76,18 @@ begin
   end;
 end;
 
+procedure TViewHerancasBuscar.FormShow(Sender: TObject);
+begin
+  Self.ModalResult := mrCancel;
+  edtBusca.SetFocus;
+end;
+
 procedure TViewHerancasBuscar.grdResultDrawColumnCell(Sender: TObject; const Rect: TRect; DataCol: Integer; Column: TColumn; State: TGridDrawState);
 begin
-   if not Odd(grdResult.DataSource.DataSet.RecNo) then
-      grdResult.Canvas.Brush.Color := $00DDDDDD;
+  if not Odd(grdResult.DataSource.DataSet.RecNo) then
+    grdResult.Canvas.Brush.Color := $00DDDDDD;
 
-   grdResult.DefaultDrawColumnCell(Rect, DataCol, Column, State);
-end;
-
-procedure TViewHerancasBuscar.btnFechaClick(Sender: TObject);
-begin
-  FechaCancela
-end;
-
-procedure TViewHerancasBuscar.FechaCancela;
-begin
-  Self.Close;
-  Self.ModalResult := mrCancel;
+  grdResult.DefaultDrawColumnCell(Rect, DataCol, Column, State);
 end;
 
 procedure TViewHerancasBuscar.btnUtilizaClick(Sender: TObject);
@@ -90,6 +97,12 @@ end;
 
 procedure TViewHerancasBuscar.ResultEncontrou;
 begin
+  if grdResult.DataSource.DataSet.IsEmpty then
+  begin
+    MessageDlg('Selecione um registro!', mtWarning, [mbOK], 0);
+    Exit;
+  end;
+
   Self.Close;
   Self.ModalResult := mrOk;
 end;

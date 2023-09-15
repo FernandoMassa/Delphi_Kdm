@@ -2,6 +2,7 @@ object ModelEnderecoDM: TModelEnderecoDM
   Height = 363
   Width = 591
   object qryRegiao: TFDQuery
+    Connection = ModelConectDM.con
     Left = 248
     Top = 56
   end
@@ -11,6 +12,7 @@ object ModelEnderecoDM: TModelEnderecoDM
     Top = 56
   end
   object qryEstado: TFDQuery
+    Connection = ModelConectDM.con
     Left = 248
     Top = 272
   end
@@ -20,14 +22,21 @@ object ModelEnderecoDM: TModelEnderecoDM
     Top = 272
   end
   object qryMunicipio: TFDQuery
+    Connection = ModelConectDM.con
+    SQL.Strings = (
+      'Select * '
+      'from MUNICIPIO'
+      'where 0=0')
     Left = 440
     Top = 160
   end
   object qryPaises: TFDQuery
+    Connection = ModelConectDM.con
     Left = 64
     Top = 160
   end
   object qryEndereco: TFDQuery
+    Connection = ModelConectDM.con
     Left = 248
     Top = 160
   end

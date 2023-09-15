@@ -14,6 +14,8 @@ type
     { Private declarations }
   public
     { Public declarations }
+  protected
+    procedure BuscaDados; override;
   end;
 
 var
@@ -22,5 +24,15 @@ var
 implementation
 
 {$R *.dfm}
+
+uses Model.Endereco.DM;
+
+{ TViewCidadesBuscar }
+
+procedure TViewCidadesBuscar.BuscaDados;
+begin
+
+  inherited;
+end;
 
 end.

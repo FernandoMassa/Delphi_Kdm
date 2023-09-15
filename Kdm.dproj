@@ -121,6 +121,10 @@
             <Form>ViewHerancasBuscar</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="Src\Views\Enderecos\View.Cidades.Buscar.pas">
+            <Form>ViewCidadesBuscar</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
