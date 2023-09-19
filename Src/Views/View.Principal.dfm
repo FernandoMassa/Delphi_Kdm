@@ -10,6 +10,7 @@ object ViewPrincipal: TViewPrincipal
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
+  OnCreate = FormCreate
   TextHeight = 15
   object StatusBar1: TStatusBar
     Left = 0

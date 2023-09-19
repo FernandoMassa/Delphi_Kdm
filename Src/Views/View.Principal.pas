@@ -30,6 +30,7 @@ type
     btnCidades: TSpeedButton;
     procedure btnExpandeContraiClick(Sender: TObject);
     procedure btnCidadesClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -76,6 +77,11 @@ begin
     btnExpandeContrai.Caption := '\/'
   end;
 
+end;
+
+procedure TViewPrincipal.FormCreate(Sender: TObject);
+begin
+  ReportMemoryLeaksOnShutdown := true;
 end;
 
 end.
