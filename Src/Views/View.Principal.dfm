@@ -39,6 +39,7 @@ object ViewPrincipal: TViewPrincipal
     Height = 77
     Align = alTop
     TabOrder = 1
+    ExplicitWidth = 851
     object btnExpandeContrai: TSpeedButton
       Left = 1
       Top = 1
@@ -56,13 +57,11 @@ object ViewPrincipal: TViewPrincipal
       Top = 1
       Width = 836
       Height = 75
-      ActivePage = tsFinanc
+      ActivePage = tsCadastro
       Align = alClient
       TabOrder = 0
       StyleName = 'Windows'
-      ExplicitLeft = 24
-      ExplicitTop = 2
-      ExplicitHeight = 63
+      ExplicitWidth = 832
       object tsCadastro: TTabSheet
         Caption = 'Cadastro'
         object btnUsuario: TSpeedButton
@@ -242,6 +241,18 @@ object ViewPrincipal: TViewPrincipal
           Width = 6
           Height = 45
           Align = alLeft
+        end
+        object btnCidades: TSpeedButton
+          AlignWithMargins = True
+          Left = 274
+          Top = 3
+          Width = 75
+          Height = 39
+          Align = alLeft
+          Caption = 'Cidades'
+          StyleName = 'Windows'
+          OnClick = btnCidadesClick
+          ExplicitLeft = 379
         end
       end
       object tsFinanc: TTabSheet

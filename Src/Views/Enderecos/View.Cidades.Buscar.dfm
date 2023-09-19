@@ -1,10 +1,9 @@
 inherited ViewCidadesBuscar: TViewCidadesBuscar
   Caption = 'ViewCidadesBuscar'
-  ClientHeight = 588
-  ClientWidth = 949
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
   TextHeight = 15
   inherited Panel1: TPanel
-    Height = 588
     inherited rgBuscaPor: TRadioGroup
       Top = 136
       ItemIndex = 1
@@ -23,8 +22,6 @@ inherited ViewCidadesBuscar: TViewCidadesBuscar
     end
   end
   inherited Panel2: TPanel
-    Width = 652
-    Height = 588
     inherited grdResult: TDBGrid
       DataSource = ModelEnderecoDM.dsMunicipio
       Columns = <
@@ -38,6 +35,11 @@ inherited ViewCidadesBuscar: TViewCidadesBuscar
         item
           Expanded = False
           FieldName = 'NOME'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -12
+          Font.Name = 'Verdana'
+          Font.Style = []
           Title.Caption = 'Nome Cidade'
           Width = 297
           Visible = True

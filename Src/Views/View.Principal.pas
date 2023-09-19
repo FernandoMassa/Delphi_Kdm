@@ -27,7 +27,9 @@ type
     btnAparelhos: TSpeedButton;
     btnPlanos: TSpeedButton;
     Bevel1: TBevel;
+    btnCidades: TSpeedButton;
     procedure btnExpandeContraiClick(Sender: TObject);
+    procedure btnCidadesClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -43,24 +45,37 @@ CONST
 
 implementation
 
+uses
+  View.Cidades.Buscar;
+
 {$R *.dfm}
+
+procedure TViewPrincipal.btnCidadesClick(Sender: TObject);
+begin
+  if not Assigned(ViewCidadesBuscar) then
+  begin
+    ViewCidadesBuscar := TViewCidadesBuscar.Create(ViewPrincipal);
+    try
+      ViewCidadesBuscar.ShowModal;
+    finally
+      FreeAndNil(ViewCidadesBuscar);
+    end;
+  end;
+end;
 
 procedure TViewPrincipal.btnExpandeContraiClick(Sender: TObject);
 begin
   if btnExpandeContrai.Caption = '\/' then
   begin
-      pnlMenu.Height := AL_EXPANDIDO;
-      btnExpandeContrai.Caption := '/\';
+    pnlMenu.Height := AL_EXPANDIDO;
+    btnExpandeContrai.Caption := '/\';
   end
   else
   begin
-      pnlMenu.Height := AL_CONTRAIDO;
-      btnExpandeContrai.Caption := '\/'
+    pnlMenu.Height := AL_CONTRAIDO;
+    btnExpandeContrai.Caption := '\/'
   end;
 
-
 end;
-
-
 
 end.

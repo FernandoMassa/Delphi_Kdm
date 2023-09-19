@@ -23,6 +23,7 @@ object ModelEnderecoDM: TModelEnderecoDM
   end
   object qryMunicipio: TFDQuery
     Connection = ModelConectDM.con
+    FormatOptions.AssignedValues = [fvADOCompatibility]
     SQL.Strings = (
       'Select * '
       'from MUNICIPIO'

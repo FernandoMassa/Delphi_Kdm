@@ -151,12 +151,19 @@ object ViewHerancasBuscar: TViewHerancasBuscar
       Width = 650
       Height = 567
       Align = alClient
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Verdana'
+      Font.Style = []
+      ParentFont = False
       TabOrder = 0
       TitleFont.Charset = DEFAULT_CHARSET
       TitleFont.Color = clWindowText
       TitleFont.Height = -12
       TitleFont.Name = 'Segoe UI'
       TitleFont.Style = []
+      StyleName = 'Windows'
       OnDrawColumnCell = grdResultDrawColumnCell
     end
     object sbResult: TStatusBar

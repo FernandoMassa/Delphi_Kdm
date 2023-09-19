@@ -13,7 +13,6 @@ type
   TModelConectDM = class(TDataModule)
     con: TFDConnection;
     WCursor: TFDGUIxWaitCursor;
-    FirebirdLnk: TFDPhysFBDriverLink;
   private
     { Private declarations }
   public
