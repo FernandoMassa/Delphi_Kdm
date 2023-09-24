@@ -2,6 +2,7 @@ inherited ViewCidadesCadastrar: TViewCidadesCadastrar
   Caption = 'Cadastro de cidades e relacionados'
   ClientHeight = 502
   ClientWidth = 700
+  OnCreate = FormCreate
   ExplicitWidth = 712
   ExplicitHeight = 540
   TextHeight = 15

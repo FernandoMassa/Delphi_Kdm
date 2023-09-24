@@ -6,6 +6,11 @@ inherited ViewCidadesBuscar: TViewCidadesBuscar
   ExplicitWidth = 1002
   TextHeight = 15
   inherited Panel1: TPanel
+    inherited Panel4: TPanel
+      inherited btnCadastro: TBitBtn
+        OnClick = btnCadastroClick
+      end
+    end
     inherited rgBuscaPor: TRadioGroup
       Top = 136
       Height = 89

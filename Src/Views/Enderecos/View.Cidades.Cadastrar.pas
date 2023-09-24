@@ -57,6 +57,7 @@ type
     procedure btnOkRegClick(Sender: TObject);
     procedure chkUFClick(Sender: TObject);
     procedure chkRegiaoClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
     procedure LiberaBloqueiaCamposUF;
     procedure LiberaBloqueiaCamposRegiao;
@@ -139,6 +140,13 @@ begin
   LiberaBloqueiaCamposUF;
 end;
 
+procedure TViewCidadesCadastrar.FormCreate(Sender: TObject);
+begin
+  inherited;
+  LiberaBloqueiaCamposRegiao;
+  LiberaBloqueiaCamposUF;
+end;
+
 procedure TViewCidadesCadastrar.chkRegiaoClick(Sender: TObject);
 begin
   inherited;
@@ -148,8 +156,10 @@ end;
 procedure TViewCidadesCadastrar.LiberaBloqueiaCamposRegiao;
 begin
   edtNomeReg.Enabled := chkRegiao.Checked;
+  gbxRegiao.Enabled := chkRegiao.Checked;
 
   edtNomeReg.Color := clSilver;
+
   if chkRegiao.Checked then
     edtNomeReg.Color := clWhite;
 end;
@@ -160,6 +170,7 @@ begin
   edtIBGEUF.Enabled := chkUF.Checked;
   edtUF.Enabled := chkUF.Checked;
   cbxRegiao.Enabled := chkUF.Checked;
+  gbxEstado.Enabled := chkUF.Checked;
 
   edtNomeUF.Color := clSilver;
   edtIBGEUF.Color := clSilver;

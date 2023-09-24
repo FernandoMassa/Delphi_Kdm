@@ -12,6 +12,7 @@ type
   TViewCidadesBuscar = class(TViewHerancasBuscar)
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
+    procedure btnCadastroClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -27,9 +28,23 @@ implementation
 
 {$R *.dfm}
 
-uses Model.Endereco.DM;
+uses Model.Endereco.DM, View.Cidades.Cadastrar;
 
 { TViewCidadesBuscar }
+
+procedure TViewCidadesBuscar.btnCadastroClick(Sender: TObject);
+begin
+  inherited;
+  if (ViewCidadesCadastrar = nil) then
+    ViewCidadesCadastrar := TViewCidadesCadastrar.Create(ViewCidadesBuscar);
+
+  try
+    ViewCidadesCadastrar.ShowModal;
+  finally
+     FreeAndNil(ViewCidadesCadastrar);
+  end;
+
+end;
 
 procedure TViewCidadesBuscar.BuscaDados;
 begin
