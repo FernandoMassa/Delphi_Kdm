@@ -3,6 +3,16 @@ object ModelEnderecoDM: TModelEnderecoDM
   Width = 591
   object qryRegiao: TFDQuery
     Connection = ModelConectDM.con
+    UpdateOptions.AssignedValues = [uvLockPoint, uvFetchGeneratorsPoint, uvGeneratorName]
+    UpdateOptions.LockPoint = lpImmediate
+    UpdateOptions.FetchGeneratorsPoint = gpImmediate
+    UpdateOptions.GeneratorName = 'SEQ_REGIAO_ID'
+    UpdateOptions.UpdateTableName = 'REGIAO'
+    UpdateOptions.KeyFields = 'ID'
+    UpdateOptions.AutoIncFields = 'ID'
+    SQL.Strings = (
+      'Select R.* '
+      'from REGIAO R ')
     Left = 232
     Top = 256
   end
@@ -13,6 +23,17 @@ object ModelEnderecoDM: TModelEnderecoDM
   end
   object qryEstado: TFDQuery
     Connection = ModelConectDM.con
+    UpdateOptions.AssignedValues = [uvLockPoint, uvFetchGeneratorsPoint, uvGeneratorName]
+    UpdateOptions.LockPoint = lpImmediate
+    UpdateOptions.FetchGeneratorsPoint = gpImmediate
+    UpdateOptions.GeneratorName = 'SEQ_ESTADO_ID'
+    UpdateOptions.UpdateTableName = 'ESTADO'
+    UpdateOptions.KeyFields = 'ID'
+    UpdateOptions.AutoIncFields = 'ID'
+    SQL.Strings = (
+      'Select E.* '
+      'from Estado E'
+      'inner join REGIAO R on (R.ID = E.REGIAO)')
     Left = 416
     Top = 256
   end
@@ -24,6 +45,13 @@ object ModelEnderecoDM: TModelEnderecoDM
   object qryMunicipio: TFDQuery
     Connection = ModelConectDM.con
     FormatOptions.AssignedValues = [fvADOCompatibility]
+    UpdateOptions.AssignedValues = [uvLockPoint, uvFetchGeneratorsPoint, uvGeneratorName]
+    UpdateOptions.LockPoint = lpImmediate
+    UpdateOptions.FetchGeneratorsPoint = gpImmediate
+    UpdateOptions.GeneratorName = 'SEQ_MUNICIPIO_ID'
+    UpdateOptions.UpdateTableName = 'MUNICIPIO'
+    UpdateOptions.KeyFields = 'ID'
+    UpdateOptions.AutoIncFields = 'ID'
     SQL.Strings = (
       'Select '
       '  m.ID'

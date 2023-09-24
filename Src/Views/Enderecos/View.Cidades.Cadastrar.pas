@@ -44,6 +44,8 @@ type
     btnCancelaReg: TSpeedButton;
     btnOkUF: TSpeedButton;
     btnCancelaUF: TSpeedButton;
+    DBComboBox2: TDBComboBox;
+    Label13: TLabel;
   private
     { Private declarations }
   public

@@ -1,10 +1,13 @@
 inherited ViewCidadesCadastrar: TViewCidadesCadastrar
   Caption = 'Cadastro de cidades e relacionados'
+  ClientHeight = 502
   ClientWidth = 700
   ExplicitWidth = 712
+  ExplicitHeight = 540
   TextHeight = 15
   inherited Panel1: TPanel
     Width = 700
+    Height = 451
     ExplicitLeft = -1
     ExplicitTop = -5
     ExplicitWidth = 799
@@ -13,7 +16,7 @@ inherited ViewCidadesCadastrar: TViewCidadesCadastrar
       Left = 25
       Top = 24
       Width = 465
-      Height = 345
+      Height = 401
       Caption = 'Munic'#237'pio'
       TabOrder = 0
       object Label1: TLabel
@@ -67,6 +70,7 @@ inherited ViewCidadesCadastrar: TViewCidadesCadastrar
         DataField = 'ID'
         DataSource = ModelEnderecoDM.dsMunicipio
         Enabled = False
+        ReadOnly = True
         TabOrder = 0
         StyleName = 'Windows'
       end
@@ -111,6 +115,7 @@ inherited ViewCidadesCadastrar: TViewCidadesCadastrar
         Top = 185
         Width = 121
         Height = 23
+        Style = csDropDownList
         TabOrder = 5
       end
     end
@@ -118,7 +123,7 @@ inherited ViewCidadesCadastrar: TViewCidadesCadastrar
       Left = 496
       Top = 24
       Width = 185
-      Height = 202
+      Height = 262
       Caption = 'Estado'
       Enabled = False
       TabOrder = 1
@@ -160,7 +165,7 @@ inherited ViewCidadesCadastrar: TViewCidadesCadastrar
       end
       object btnOkUF: TSpeedButton
         Left = 159
-        Top = 177
+        Top = 236
         Width = 23
         Height = 22
         Caption = #8730
@@ -174,6 +179,13 @@ inherited ViewCidadesCadastrar: TViewCidadesCadastrar
         Caption = 'x'
         StyleName = 'Windows'
       end
+      object Label13: TLabel
+        Left = 15
+        Top = 200
+        Width = 36
+        Height = 15
+        Caption = 'Regi'#227'o'
+      end
       object DBEdit9: TDBEdit
         Left = 15
         Top = 35
@@ -183,6 +195,7 @@ inherited ViewCidadesCadastrar: TViewCidadesCadastrar
         DataField = 'ID'
         DataSource = ModelEnderecoDM.dsMunicipio
         Enabled = False
+        ReadOnly = True
         TabOrder = 0
         StyleName = 'Windows'
       end
@@ -213,10 +226,18 @@ inherited ViewCidadesCadastrar: TViewCidadesCadastrar
         DataSource = ModelEnderecoDM.dsMunicipio
         TabOrder = 3
       end
+      object DBComboBox2: TDBComboBox
+        Left = 15
+        Top = 217
+        Width = 121
+        Height = 23
+        Style = csDropDownList
+        TabOrder = 4
+      end
     end
     object gbxRegiao: TGroupBox
       Left = 496
-      Top = 248
+      Top = 304
       Width = 185
       Height = 121
       Caption = 'Regi'#227'o'
@@ -278,6 +299,7 @@ inherited ViewCidadesCadastrar: TViewCidadesCadastrar
         DataField = 'ID'
         DataSource = ModelEnderecoDM.dsMunicipio
         Enabled = False
+        ReadOnly = True
         TabOrder = 1
         StyleName = 'Windows'
       end
@@ -294,7 +316,7 @@ inherited ViewCidadesCadastrar: TViewCidadesCadastrar
     end
     object CheckBox2: TCheckBox
       Left = 601
-      Top = 236
+      Top = 292
       Width = 80
       Height = 17
       Alignment = taLeftJustify
@@ -304,6 +326,7 @@ inherited ViewCidadesCadastrar: TViewCidadesCadastrar
     end
   end
   inherited Panel2: TPanel
+    Top = 451
     Width = 700
     inherited btnCancelar: TSpeedButton
       Left = 586
