@@ -24,17 +24,17 @@ type
     { Private declarations }
   public
     { Public declarations }
-    function LocalizaMunicipio(Const ACondicao : String): integer;
-    procedure GeraFiltroMunicipio(const Atexto: string; AIni, AFim : Boolean; ABuscaPor: Integer);
-    function GravarGeral : Boolean;
-    function Adicionar_Municipio : Boolean;
+    function LocalizaMunicipio(Const ACondicao: String): integer;
+    procedure GeraFiltroMunicipio(const Atexto: string; AIni, AFim: Boolean; ABuscaPor: integer);
+    function GravarGeral: Boolean;
+    function Adicionar_Municipio: Boolean;
     function Excluir_Municipio: Boolean;
     function Add_UF: Boolean;
-    function Cancela_UF : Boolean;
-    function Salva_UF : Boolean;
+    function Cancela_UF: Boolean;
+    function Salva_UF: Boolean;
     function Add_Regiao: Boolean;
-    function Cancela_Regiao : Boolean;
-    function Salva_Regiao : Boolean;
+    function Cancela_Regiao: Boolean;
+    function Salva_Regiao: Boolean;
   end;
 
 var
@@ -47,40 +47,67 @@ implementation
 uses Model.Conect.DM, Vcl.Dialogs;
 
 {$R *.dfm}
-
 { TModelEnderecoDM }
 
 function TModelEnderecoDM.Add_Regiao: Boolean;
 begin
-
-end;
-
-function TModelEnderecoDM.Add_UF: Boolean;
-begin
-
-end;
-
-function TModelEnderecoDM.Adicionar_Municipio: Boolean;
-begin
-  //
+  if not qryRegiao.Active then
+    qryRegiao.Open;
+    
+  qryRegiao.Append;
 end;
 
 function TModelEnderecoDM.Cancela_Regiao: Boolean;
 begin
+  if qryRegiao.State in [dsInsert, dsEdit] then
+    qryRegiao.Cancel;
 
+  qryRegiao.Close;
+end;
+
+function TModelEnderecoDM.Salva_Regiao: Boolean;
+begin
+   if qryRegiao.State in [dsInsert, dsEdit] then
+      qryRegiao.Post;
+
+   qryRegiao.Close;
+end;
+
+function TModelEnderecoDM.Add_UF: Boolean;
+begin
+  if not qryEstado.Active then
+    qryEstado.Open;
+
+  qryEstado.Append;
+end;
+
+function TModelEnderecoDM.Salva_UF: Boolean;
+begin
+   if qryEstado.State in [dsInsert, dsEdit] then
+      qryEstado.Post;
+      
+   qryEstado.Close;
 end;
 
 function TModelEnderecoDM.Cancela_UF: Boolean;
 begin
+   if qryEstado.State in [dsInsert, dsEdit] then
+      qryEstado.Cancel;
+      
+   qryEstado.Close;   
+end;
 
+function TModelEnderecoDM.Adicionar_Municipio: Boolean;
+begin
+   
 end;
 
 function TModelEnderecoDM.Excluir_Municipio: Boolean;
 begin
-//
+  //
 end;
 
-procedure TModelEnderecoDM.GeraFiltroMunicipio(const Atexto: string; AIni, AFim : Boolean; ABuscaPor: Integer);
+procedure TModelEnderecoDM.GeraFiltroMunicipio(const Atexto: string; AIni, AFim: Boolean; ABuscaPor: integer);
 var
   vIniParc, vFimParc, vFiltro: string;
 begin
@@ -120,44 +147,27 @@ end;
 
 function TModelEnderecoDM.LocalizaMunicipio(const ACondicao: String): integer;
 const
-  SELECT_PADRAO = 'Select'+sLineBreak+
-                  '  m.ID'+sLineBreak+
-                  ' ,m.CODIGO'+sLineBreak+
-                  ' ,m.NOME'+sLineBreak+
-                  ' ,m.UF'+sLineBreak+
-                  ' ,E.NOME AS ESTADO_NOME'+sLineBreak+
-                  ' ,R.NOME AS REG_NOME'+sLineBreak+
-                  'from MUNICIPIO M'+sLineBreak+
-                  'INNER JOIN ESTADO E ON (E.UF = M.UF)'+sLineBreak+
-                  'INNER JOIN REGIAO R ON (R.ID = E.REGIAO)'+sLineBreak+
-                  'where 0=0';
+  SELECT_PADRAO = 'Select' + sLineBreak + '  m.ID' + sLineBreak + ' ,m.CODIGO' + sLineBreak + ' ,m.NOME' + sLineBreak + ' ,m.UF' + sLineBreak +
+    ' ,E.NOME AS ESTADO_NOME' + sLineBreak + ' ,R.NOME AS REG_NOME' + sLineBreak + 'from MUNICIPIO M' + sLineBreak + 'INNER JOIN ESTADO E ON (E.UF = M.UF)' +
+    sLineBreak + 'INNER JOIN REGIAO R ON (R.ID = E.REGIAO)' + sLineBreak + 'where 0=0';
 begin
-   if not ModelConectDM.con.Connected then
-      ModelConectDM.con.Connected := true;
+  if not ModelConectDM.con.Connected then
+    ModelConectDM.con.Connected := true;
 
-   Result := 0;
-   qryMunicipio.SQL.Clear;
-   qryMunicipio.SQL.Add(SELECT_PADRAO);
-   qryMunicipio.SQL.Add(ACondicao);
-   //qryMunicipio.SQL.SaveToFile('d:\sqlTesteMun.sql');
-   try
-      qryMunicipio.Open;
-      Result := qryMunicipio.RecordCount;
-   except on E: Exception do
-        begin
-           MessageDlg('Ocorreu um erro na consulta.'+#13+#10+'Erro:'+ e.Message , mtError, [mbOK], 0);
-        end;
-   end;
-end;
-
-function TModelEnderecoDM.Salva_Regiao: Boolean;
-begin
-
-end;
-
-function TModelEnderecoDM.Salva_UF: Boolean;
-begin
-
+  Result := 0;
+  qryMunicipio.SQL.Clear;
+  qryMunicipio.SQL.Add(SELECT_PADRAO);
+  qryMunicipio.SQL.Add(ACondicao);
+  // qryMunicipio.SQL.SaveToFile('d:\sqlTesteMun.sql');
+  try
+    qryMunicipio.Open;
+    Result := qryMunicipio.RecordCount;
+  except
+    on E: Exception do
+    begin
+      MessageDlg('Ocorreu um erro na consulta.' + #13 + #10 + 'Erro:' + E.Message, mtError, [mbOK], 0);
+    end;
+  end;
 end;
 
 end.
