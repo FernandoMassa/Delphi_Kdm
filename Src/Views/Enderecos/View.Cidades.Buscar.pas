@@ -46,9 +46,20 @@ begin
     vIniParc := '';
 
   case rgBuscaPor.ItemIndex of
-    0: vFiltro := 'and M.CODIGO like' + trim(AnsiUpperCase(edtBusca.Text));
-    1: vFiltro := 'and UPPER(M.NOME) like' + QuotedStr((vIniParc + trim(AnsiUpperCase(edtBusca.Text)) + vFimParc));
-    2: vFiltro := 'and UPPER(M.UF) like' + QuotedStr(trim(AnsiUpperCase(edtBusca.Text)));
+    0:
+      begin
+        if StrToFloatDef(trim(edtBusca.Text), 0) > 0 then
+          vFiltro := 'and M.CODIGO like' + trim(AnsiUpperCase(edtBusca.Text))
+        else
+        begin
+          MessageDlg('Código IBGE inválido!', mtWarning, [mbOK], 0);
+          Abort;
+        end;
+      end;
+    1: vFiltro := 'and UPPER(M.NOME) like' + QuotedStr((vIniParc + trim(edtBusca.Text) + vFimParc)).ToUpper;
+    2: vFiltro := 'and UPPER(M.UF) like' + QuotedStr(trim(edtBusca.Text)).ToUpper;
+    3: vFiltro := 'and UPPER(E.NOME) like' + QuotedStr(vIniParc + trim(edtBusca.Text) + vFimParc).ToUpper;
+    4: vFiltro := 'and UPPER(R.NOME) like' + QuotedStr(vIniParc + trim(edtBusca.Text) + vFimParc).ToUpper;
   end;
 
   ModelEnderecoDM.LocalizaMunicipio(vFiltro);
@@ -58,9 +69,9 @@ end;
 procedure TViewCidadesBuscar.FormCreate(Sender: TObject);
 begin
   inherited;
+
   if ModelEnderecoDM = nil then
     ModelEnderecoDM := TModelEnderecoDM.Create(ViewCidadesBuscar);
-
 
 end;
 

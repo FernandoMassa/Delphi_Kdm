@@ -1,9 +1,9 @@
 object ViewPrincipal: TViewPrincipal
   Left = 0
   Top = 0
-  Caption = 'Pensamento Digital - Sa'#250'de Admin'
-  ClientHeight = 528
-  ClientWidth = 855
+  Caption = '.'
+  ClientHeight = 599
+  ClientWidth = 1019
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -14,8 +14,8 @@ object ViewPrincipal: TViewPrincipal
   TextHeight = 15
   object StatusBar1: TStatusBar
     Left = 0
-    Top = 509
-    Width = 855
+    Top = 580
+    Width = 1019
     Height = 19
     Panels = <
       item
@@ -36,7 +36,7 @@ object ViewPrincipal: TViewPrincipal
   object pnlMenu: TPanel
     Left = 0
     Top = 0
-    Width = 855
+    Width = 1019
     Height = 77
     Align = alTop
     TabOrder = 1
@@ -56,7 +56,7 @@ object ViewPrincipal: TViewPrincipal
     object pcMenu: TPageControl
       Left = 18
       Top = 1
-      Width = 836
+      Width = 1000
       Height = 75
       ActivePage = tsCadastro
       Align = alClient

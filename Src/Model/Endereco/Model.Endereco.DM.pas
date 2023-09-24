@@ -41,13 +41,25 @@ uses Model.Conect.DM, Vcl.Dialogs;
 { TModelEnderecoDM }
 
 function TModelEnderecoDM.LocalizaMunicipio(const ACondicao: String): integer;
+const
+  SELECT_PADRAO = 'Select'+sLineBreak+
+                  '  m.ID'+sLineBreak+
+                  ' ,m.CODIGO'+sLineBreak+
+                  ' ,m.NOME'+sLineBreak+
+                  ' ,m.UF'+sLineBreak+
+                  ' ,E.NOME AS ESTADO_NOME'+sLineBreak+
+                  ' ,R.NOME AS REG_NOME'+sLineBreak+
+                  'from MUNICIPIO M'+sLineBreak+
+                  'INNER JOIN ESTADO E ON (E.UF = M.UF)'+sLineBreak+
+                  'INNER JOIN REGIAO R ON (R.ID = E.REGIAO)'+sLineBreak+
+                  'where 0=0';
 begin
    if not ModelConectDM.con.Connected then
       ModelConectDM.con.Connected := true;
 
    Result := 0;
    qryMunicipio.SQL.Clear;
-   qryMunicipio.SQL.Add('Select M.* from MUNICIPIO M where 0=0');
+   qryMunicipio.SQL.Add(SELECT_PADRAO);
    qryMunicipio.SQL.Add(ACondicao);
    //qryMunicipio.SQL.SaveToFile('d:\sqlTesteMun.sql');
    try

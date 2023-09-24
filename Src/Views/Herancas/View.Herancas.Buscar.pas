@@ -17,7 +17,6 @@ type
     edtBusca: TEdit;
     Label1: TLabel;
     btnFecha: TSpeedButton;
-    btnCadastro: TSpeedButton;
     btnUtiliza: TSpeedButton;
     rgBuscaPor: TRadioGroup;
     GroupBox1: TGroupBox;
@@ -25,6 +24,7 @@ type
     rbIniciaCom: TRadioButton;
     rbTerminaCom: TRadioButton;
     GroupBox2: TGroupBox;
+    btnCadastro: TBitBtn;
     procedure btnFechaClick(Sender: TObject);
     procedure btnUtilizaClick(Sender: TObject);
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);

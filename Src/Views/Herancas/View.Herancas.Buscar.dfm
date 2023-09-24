@@ -51,17 +51,6 @@ object ViewHerancasBuscar: TViewHerancasBuscar
         OnClick = btnFechaClick
         ExplicitLeft = 221
       end
-      object btnCadastro: TSpeedButton
-        AlignWithMargins = True
-        Left = 9
-        Top = 4
-        Width = 90
-        Height = 72
-        Align = alRight
-        Caption = 'Cadastro'
-        StyleName = 'Windows'
-        ExplicitLeft = -3
-      end
       object btnUtiliza: TSpeedButton
         AlignWithMargins = True
         Left = 105
@@ -73,6 +62,24 @@ object ViewHerancasBuscar: TViewHerancasBuscar
         StyleName = 'Windows'
         OnClick = btnUtilizaClick
         ExplicitLeft = 145
+      end
+      object btnCadastro: TBitBtn
+        AlignWithMargins = True
+        Left = 4
+        Top = 4
+        Width = 95
+        Height = 72
+        Align = alLeft
+        Caption = 'Cadastro / Altera'#231#227'o'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -15
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 0
+        WordWrap = True
+        StyleName = 'Windows'
       end
     end
     object edtBusca: TEdit
