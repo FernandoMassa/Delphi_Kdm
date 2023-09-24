@@ -1,6 +1,6 @@
 object ModelEnderecoDM: TModelEnderecoDM
-  Height = 363
-  Width = 591
+  Height = 332
+  Width = 570
   object qryRegiao: TFDQuery
     Connection = ModelConectDM.con
     UpdateOptions.AssignedValues = [uvLockPoint, uvFetchGeneratorsPoint, uvGeneratorName]

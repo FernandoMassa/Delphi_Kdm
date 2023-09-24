@@ -25,6 +25,7 @@ type
   public
     { Public declarations }
     function LocalizaMunicipio(Const ACondicao : String): integer;
+    procedure GeraFiltroMunicipio(const Atexto: string; AIni, AFim : Boolean; ABuscaPor: Integer);
   end;
 
 var
@@ -39,6 +40,39 @@ uses Model.Conect.DM, Vcl.Dialogs;
 {$R *.dfm}
 
 { TModelEnderecoDM }
+
+procedure TModelEnderecoDM.GeraFiltroMunicipio(const Atexto: string; AIni, AFim : Boolean; ABuscaPor: Integer);
+var
+  vIniParc, vFimParc, vFiltro: string;
+begin
+  vFiltro := '';
+  vIniParc := '%';
+  vFimParc := '%';
+
+  if AIni then
+    vFimParc := '';
+
+  if AFim then
+    vIniParc := '';
+
+  case ABuscaPor of
+    0:
+      begin
+        if StrToFloatDef(trim(Atexto), 0) > 0 then
+          vFiltro := 'and M.CODIGO like' + trim(AnsiUpperCase(Atexto))
+        else
+        begin
+          MessageDlg('Código IBGE inválido!', mtWarning, [mbOK], 0);
+          Abort;
+        end;
+      end;
+    1: vFiltro := 'and UPPER(M.NOME) like' + QuotedStr((vIniParc + trim(Atexto) + vFimParc)).ToUpper;
+    2: vFiltro := 'and UPPER(M.UF) like' + QuotedStr(trim(Atexto)).ToUpper;
+    3: vFiltro := 'and UPPER(E.NOME) like' + QuotedStr(vIniParc + trim(Atexto) + vFimParc).ToUpper;
+    4: vFiltro := 'and UPPER(R.NOME) like' + QuotedStr(vIniParc + trim(Atexto) + vFimParc).ToUpper;
+  end;
+  LocalizaMunicipio(vFiltro);
+end;
 
 function TModelEnderecoDM.LocalizaMunicipio(const ACondicao: String): integer;
 const

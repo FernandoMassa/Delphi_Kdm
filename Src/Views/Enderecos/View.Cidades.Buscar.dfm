@@ -1,13 +1,11 @@
 inherited ViewCidadesBuscar: TViewCidadesBuscar
   Caption = 'ViewCidadesBuscar'
-  ClientHeight = 588
   ClientWidth = 990
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   ExplicitWidth = 1002
   TextHeight = 15
   inherited Panel1: TPanel
-    Height = 588
     inherited rgBuscaPor: TRadioGroup
       Top = 136
       Height = 89
@@ -32,7 +30,6 @@ inherited ViewCidadesBuscar: TViewCidadesBuscar
   end
   inherited Panel2: TPanel
     Width = 693
-    Height = 588
     inherited grdResult: TDBGrid
       Width = 691
       DataSource = ModelEnderecoDM.dsMunicipio

@@ -32,37 +32,13 @@ uses Model.Endereco.DM;
 { TViewCidadesBuscar }
 
 procedure TViewCidadesBuscar.BuscaDados;
-var
-  vIniParc, vFimParc, vFiltro: string;
 begin
-  vFiltro := '';
-  vIniParc := '%';
-  vFimParc := '%';
 
-  if rbIniciaCom.Checked then
-    vFimParc := '';
+  ModelEnderecoDM.GeraFiltroMunicipio(edtBusca.Text,
+                                      rbIniciaCom.Checked,
+                                      rbTerminaCom.Checked,
+                                      rgBuscaPor.ItemIndex);
 
-  if rbTerminaCom.Checked then
-    vIniParc := '';
-
-  case rgBuscaPor.ItemIndex of
-    0:
-      begin
-        if StrToFloatDef(trim(edtBusca.Text), 0) > 0 then
-          vFiltro := 'and M.CODIGO like' + trim(AnsiUpperCase(edtBusca.Text))
-        else
-        begin
-          MessageDlg('Código IBGE inválido!', mtWarning, [mbOK], 0);
-          Abort;
-        end;
-      end;
-    1: vFiltro := 'and UPPER(M.NOME) like' + QuotedStr((vIniParc + trim(edtBusca.Text) + vFimParc)).ToUpper;
-    2: vFiltro := 'and UPPER(M.UF) like' + QuotedStr(trim(edtBusca.Text)).ToUpper;
-    3: vFiltro := 'and UPPER(E.NOME) like' + QuotedStr(vIniParc + trim(edtBusca.Text) + vFimParc).ToUpper;
-    4: vFiltro := 'and UPPER(R.NOME) like' + QuotedStr(vIniParc + trim(edtBusca.Text) + vFimParc).ToUpper;
-  end;
-
-  ModelEnderecoDM.LocalizaMunicipio(vFiltro);
   inherited;
 end;
 

@@ -7,7 +7,8 @@ uses
   Model.Endereco.DM in 'Src\Model\Endereco\Model.Endereco.DM.pas' {ModelEnderecoDM: TDataModule},
   View.Herancas.Buscar in 'Src\Views\Herancas\View.Herancas.Buscar.pas' {ViewHerancasBuscar},
   View.Cidades.Buscar in 'Src\Views\Enderecos\View.Cidades.Buscar.pas' {ViewCidadesBuscar},
-  View.Herancas.Cadastro in 'Src\Views\Herancas\View.Herancas.Cadastro.pas' {ViewHerancasCadastro};
+  View.Herancas.Cadastro in 'Src\Views\Herancas\View.Herancas.Cadastro.pas' {ViewHerancasCadastro},
+  View.Cidades.Cadastrar in 'Src\Views\Enderecos\View.Cidades.Cadastrar.pas' {ViewCidadesCadastrar};
 
 {$R *.res}
 
@@ -17,6 +18,7 @@ begin
   Application.CreateForm(TViewPrincipal, ViewPrincipal);
   Application.CreateForm(TModelConectDM, ModelConectDM);
   Application.CreateForm(TViewHerancasCadastro, ViewHerancasCadastro);
+  Application.CreateForm(TViewCidadesCadastrar, ViewCidadesCadastrar);
   Application.Run;
 
 end.
