@@ -23,33 +23,47 @@ type
     Label5: TLabel;
     Label6: TLabel;
     DBEdit6: TDBEdit;
-    DBEdit7: TDBEdit;
+    edtNomeReg: TDBEdit;
     Label7: TLabel;
     Label8: TLabel;
     DBEdit8: TDBEdit;
     DBEdit9: TDBEdit;
     Label9: TLabel;
     Label10: TLabel;
-    DBEdit10: TDBEdit;
+    edtNomeUF: TDBEdit;
     Label11: TLabel;
-    DBEdit11: TDBEdit;
+    edtIBGEUF: TDBEdit;
     Label12: TLabel;
-    DBEdit12: TDBEdit;
+    edtUF: TDBEdit;
     btnAddUF: TSpeedButton;
     btnAddReg: TSpeedButton;
-    CheckBox1: TCheckBox;
-    CheckBox2: TCheckBox;
+    chkUF: TCheckBox;
+    chkRegiao: TCheckBox;
     DBComboBox1: TDBComboBox;
     btnOkReg: TSpeedButton;
     btnCancelaReg: TSpeedButton;
     btnOkUF: TSpeedButton;
     btnCancelaUF: TSpeedButton;
-    DBComboBox2: TDBComboBox;
+    cbxRegiao: TDBComboBox;
     Label13: TLabel;
+    procedure btnGravarClick(Sender: TObject);
+    procedure btnAdicionarClick(Sender: TObject);
+    procedure btnExcluirClick(Sender: TObject);
+    procedure btnAddUFClick(Sender: TObject);
+    procedure btnCancelaUFClick(Sender: TObject);
+    procedure btnOkUFClick(Sender: TObject);
+    procedure btnAddRegClick(Sender: TObject);
+    procedure btnCancelaRegClick(Sender: TObject);
+    procedure btnOkRegClick(Sender: TObject);
+    procedure chkUFClick(Sender: TObject);
+    procedure chkRegiaoClick(Sender: TObject);
   private
+    procedure LiberaBloqueiaCamposUF;
+    procedure LiberaBloqueiaCamposRegiao;
     { Private declarations }
   public
     { Public declarations }
+
   end;
 
 var
@@ -60,5 +74,106 @@ implementation
 {$R *.dfm}
 
 uses Model.Endereco.DM;
+
+procedure TViewCidadesCadastrar.btnAddRegClick(Sender: TObject);
+begin
+  inherited;
+  ModelEnderecoDM.Add_Regiao;
+end;
+
+procedure TViewCidadesCadastrar.btnAddUFClick(Sender: TObject);
+begin
+  inherited;
+  ModelEnderecoDM.Add_UF;
+end;
+
+procedure TViewCidadesCadastrar.btnAdicionarClick(Sender: TObject);
+begin
+  inherited;
+  ModelEnderecoDM.Adicionar_Municipio
+end;
+
+procedure TViewCidadesCadastrar.btnCancelaRegClick(Sender: TObject);
+begin
+  inherited;
+  ModelEnderecoDM.Cancela_Regiao;
+  chkRegiao.Checked := False;
+  LiberaBloqueiaCamposRegiao;
+end;
+
+procedure TViewCidadesCadastrar.btnCancelaUFClick(Sender: TObject);
+begin
+  inherited;
+  ModelEnderecoDM.Cancela_UF;
+  chkUF.Checked := False;
+  LiberaBloqueiaCamposUF;
+end;
+
+procedure TViewCidadesCadastrar.btnExcluirClick(Sender: TObject);
+begin
+  inherited;
+  ModelEnderecoDM.Excluir_Municipio;
+end;
+
+procedure TViewCidadesCadastrar.btnGravarClick(Sender: TObject);
+begin
+  inherited;
+  ModelEnderecoDM.GravarGeral;
+end;
+
+procedure TViewCidadesCadastrar.btnOkRegClick(Sender: TObject);
+begin
+  inherited;
+  ModelEnderecoDM.Salva_Regiao;
+end;
+
+procedure TViewCidadesCadastrar.btnOkUFClick(Sender: TObject);
+begin
+  inherited;
+  ModelEnderecoDM.Salva_UF;
+end;
+
+procedure TViewCidadesCadastrar.chkUFClick(Sender: TObject);
+begin
+  inherited;
+  LiberaBloqueiaCamposUF;
+end;
+
+procedure TViewCidadesCadastrar.chkRegiaoClick(Sender: TObject);
+begin
+  inherited;
+  LiberaBloqueiaCamposRegiao;
+end;
+
+procedure TViewCidadesCadastrar.LiberaBloqueiaCamposRegiao;
+begin
+  edtNomeReg.Enabled := chkRegiao.Checked;
+
+  edtNomeReg.Color := clSilver;
+  if chkRegiao.Checked then
+    edtNomeReg.Color := clWhite;
+end;
+
+procedure TViewCidadesCadastrar.LiberaBloqueiaCamposUF;
+begin
+  edtNomeUF.Enabled := chkUF.Checked;
+  edtIBGEUF.Enabled := chkUF.Checked;
+  edtUF.Enabled := chkUF.Checked;
+  cbxRegiao.Enabled := chkUF.Checked;
+
+  edtNomeUF.Color := clSilver;
+  edtIBGEUF.Color := clSilver;
+  edtUF.Color := clSilver;
+  cbxRegiao.Color := clSilver;
+
+  if chkUF.Checked then
+  begin
+    edtNomeUF.Color := clWhite;
+    edtIBGEUF.Color := clWhite;
+    edtUF.Color := clWhite;
+    cbxRegiao.Color := clWhite;
+  end;
+
+end;
 
 end.

@@ -26,6 +26,15 @@ type
     { Public declarations }
     function LocalizaMunicipio(Const ACondicao : String): integer;
     procedure GeraFiltroMunicipio(const Atexto: string; AIni, AFim : Boolean; ABuscaPor: Integer);
+    function GravarGeral : Boolean;
+    function Adicionar_Municipio : Boolean;
+    function Excluir_Municipio: Boolean;
+    function Add_UF: Boolean;
+    function Cancela_UF : Boolean;
+    function Salva_UF : Boolean;
+    function Add_Regiao: Boolean;
+    function Cancela_Regiao : Boolean;
+    function Salva_Regiao : Boolean;
   end;
 
 var
@@ -40,6 +49,36 @@ uses Model.Conect.DM, Vcl.Dialogs;
 {$R *.dfm}
 
 { TModelEnderecoDM }
+
+function TModelEnderecoDM.Add_Regiao: Boolean;
+begin
+
+end;
+
+function TModelEnderecoDM.Add_UF: Boolean;
+begin
+
+end;
+
+function TModelEnderecoDM.Adicionar_Municipio: Boolean;
+begin
+  //
+end;
+
+function TModelEnderecoDM.Cancela_Regiao: Boolean;
+begin
+
+end;
+
+function TModelEnderecoDM.Cancela_UF: Boolean;
+begin
+
+end;
+
+function TModelEnderecoDM.Excluir_Municipio: Boolean;
+begin
+//
+end;
 
 procedure TModelEnderecoDM.GeraFiltroMunicipio(const Atexto: string; AIni, AFim : Boolean; ABuscaPor: Integer);
 var
@@ -74,6 +113,11 @@ begin
   LocalizaMunicipio(vFiltro);
 end;
 
+function TModelEnderecoDM.GravarGeral: Boolean;
+begin
+  //
+end;
+
 function TModelEnderecoDM.LocalizaMunicipio(const ACondicao: String): integer;
 const
   SELECT_PADRAO = 'Select'+sLineBreak+
@@ -104,6 +148,16 @@ begin
            MessageDlg('Ocorreu um erro na consulta.'+#13+#10+'Erro:'+ e.Message , mtError, [mbOK], 0);
         end;
    end;
+end;
+
+function TModelEnderecoDM.Salva_Regiao: Boolean;
+begin
+
+end;
+
+function TModelEnderecoDM.Salva_UF: Boolean;
+begin
+
 end;
 
 end.

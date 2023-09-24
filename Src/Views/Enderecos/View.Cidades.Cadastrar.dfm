@@ -162,6 +162,7 @@ inherited ViewCidadesCadastrar: TViewCidadesCadastrar
         Height = 22
         Caption = '+'
         StyleName = 'Windows'
+        OnClick = btnAddUFClick
       end
       object btnOkUF: TSpeedButton
         Left = 159
@@ -170,6 +171,7 @@ inherited ViewCidadesCadastrar: TViewCidadesCadastrar
         Height = 22
         Caption = #8730
         StyleName = 'Windows'
+        OnClick = btnOkUFClick
       end
       object btnCancelaUF: TSpeedButton
         Left = 159
@@ -178,6 +180,7 @@ inherited ViewCidadesCadastrar: TViewCidadesCadastrar
         Height = 22
         Caption = 'x'
         StyleName = 'Windows'
+        OnClick = btnCancelaUFClick
       end
       object Label13: TLabel
         Left = 15
@@ -199,7 +202,7 @@ inherited ViewCidadesCadastrar: TViewCidadesCadastrar
         TabOrder = 0
         StyleName = 'Windows'
       end
-      object DBEdit10: TDBEdit
+      object edtNomeUF: TDBEdit
         Left = 15
         Top = 79
         Width = 150
@@ -208,16 +211,16 @@ inherited ViewCidadesCadastrar: TViewCidadesCadastrar
         DataSource = ModelEnderecoDM.dsMunicipio
         TabOrder = 1
       end
-      object DBEdit11: TDBEdit
+      object edtIBGEUF: TDBEdit
         Left = 15
-        Top = 122
+        Top = 120
         Width = 121
         Height = 23
         DataField = 'CODIGO'
         DataSource = ModelEnderecoDM.dsMunicipio
         TabOrder = 2
       end
-      object DBEdit12: TDBEdit
+      object edtUF: TDBEdit
         Left = 15
         Top = 166
         Width = 121
@@ -226,7 +229,7 @@ inherited ViewCidadesCadastrar: TViewCidadesCadastrar
         DataSource = ModelEnderecoDM.dsMunicipio
         TabOrder = 3
       end
-      object DBComboBox2: TDBComboBox
+      object cbxRegiao: TDBComboBox
         Left = 15
         Top = 217
         Width = 121
@@ -264,6 +267,7 @@ inherited ViewCidadesCadastrar: TViewCidadesCadastrar
         Height = 22
         Caption = '+'
         StyleName = 'Windows'
+        OnClick = btnAddRegClick
       end
       object btnOkReg: TSpeedButton
         Left = 159
@@ -272,6 +276,7 @@ inherited ViewCidadesCadastrar: TViewCidadesCadastrar
         Height = 22
         Caption = #8730
         StyleName = 'Windows'
+        OnClick = btnOkRegClick
       end
       object btnCancelaReg: TSpeedButton
         Left = 159
@@ -280,8 +285,9 @@ inherited ViewCidadesCadastrar: TViewCidadesCadastrar
         Height = 22
         Caption = 'x'
         StyleName = 'Windows'
+        OnClick = btnCancelaRegClick
       end
-      object DBEdit7: TDBEdit
+      object edtNomeReg: TDBEdit
         Left = 15
         Top = 84
         Width = 121
@@ -304,7 +310,7 @@ inherited ViewCidadesCadastrar: TViewCidadesCadastrar
         StyleName = 'Windows'
       end
     end
-    object CheckBox1: TCheckBox
+    object chkUF: TCheckBox
       Left = 601
       Top = 12
       Width = 80
@@ -313,8 +319,9 @@ inherited ViewCidadesCadastrar: TViewCidadesCadastrar
       Caption = 'Add Estado'
       TabOrder = 3
       StyleName = 'Windows'
+      OnClick = chkUFClick
     end
-    object CheckBox2: TCheckBox
+    object chkRegiao: TCheckBox
       Left = 601
       Top = 292
       Width = 80
@@ -323,6 +330,7 @@ inherited ViewCidadesCadastrar: TViewCidadesCadastrar
       Caption = 'Add Regi'#227'o'
       TabOrder = 4
       StyleName = 'Windows'
+      OnClick = chkRegiaoClick
     end
   end
   inherited Panel2: TPanel
@@ -330,6 +338,15 @@ inherited ViewCidadesCadastrar: TViewCidadesCadastrar
     Width = 700
     inherited btnCancelar: TSpeedButton
       Left = 586
+    end
+    inherited btnExcluir: TSpeedButton
+      OnClick = btnExcluirClick
+    end
+    inherited btnAdicionar: TSpeedButton
+      OnClick = btnAdicionarClick
+    end
+    inherited btnGravar: TSpeedButton
+      OnClick = btnGravarClick
     end
   end
 end

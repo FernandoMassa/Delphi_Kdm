@@ -64,7 +64,7 @@ object ViewHerancasCadastro: TViewHerancasCadastro
       Width = 110
       Height = 43
       Align = alLeft
-      Caption = 'Gravar'
+      Caption = 'Adicionar'
       StyleName = 'Windows'
       ExplicitLeft = 688
       ExplicitTop = 1
